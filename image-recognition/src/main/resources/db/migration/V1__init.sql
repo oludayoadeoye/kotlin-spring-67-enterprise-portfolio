@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS image_recognitions (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    image_url TEXT NOT NULL,
+    labels TEXT NOT NULL,
+    confidence DOUBLE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

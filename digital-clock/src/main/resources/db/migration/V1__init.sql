@@ -1,1 +1,7 @@
--- Initial migration for digital-clock
+CREATE TABLE IF NOT EXISTS clock_fetches (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    city VARCHAR(100) NOT NULL,
+    time VARCHAR(50) NOT NULL,
+    offset_val VARCHAR(20) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

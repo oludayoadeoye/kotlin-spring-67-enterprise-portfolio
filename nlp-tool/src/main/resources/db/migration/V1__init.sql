@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS nlp_analyses (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    text TEXT NOT NULL,
+    sentiment VARCHAR(50),
+    keywords VARCHAR(255),
+    language VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
