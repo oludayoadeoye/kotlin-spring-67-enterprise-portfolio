@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS book_loans (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    book_id VARCHAR(255) NOT NULL,
+    member_id VARCHAR(255) NOT NULL,
+    due_date DATE NOT NULL,
+    overdue BOOLEAN DEFAULT FALSE,
+    returned BOOLEAN DEFAULT FALSE
+);

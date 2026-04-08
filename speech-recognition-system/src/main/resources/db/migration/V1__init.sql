@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS transcriptions (
+    id VARCHAR(255) PRIMARY KEY,
+    audio_id VARCHAR(255) NOT NULL,
+    text TEXT NOT NULL,
+    confidence DOUBLE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

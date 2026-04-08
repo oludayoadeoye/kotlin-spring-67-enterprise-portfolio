@@ -1,0 +1,1 @@
+-- Initial migration for personal-blog-adv

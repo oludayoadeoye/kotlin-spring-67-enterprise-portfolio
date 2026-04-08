@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS threat_alerts (
+    id VARCHAR(255) PRIMARY KEY,
+    severity VARCHAR(50) NOT NULL,
+    source_ip VARCHAR(50) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

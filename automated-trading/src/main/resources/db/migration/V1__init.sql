@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS trade_signals (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    symbol VARCHAR(50) NOT NULL,
+    action VARCHAR(20) NOT NULL, -- "Buy", "Sell", "Hold"
+    confidence DOUBLE NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

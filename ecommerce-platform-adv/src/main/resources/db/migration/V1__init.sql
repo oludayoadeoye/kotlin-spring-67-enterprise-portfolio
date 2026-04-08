@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS cart_items (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL,
+    product_id BIGINT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    price DOUBLE NOT NULL,
+    quantity INT NOT NULL
+);

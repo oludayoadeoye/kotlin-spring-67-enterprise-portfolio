@@ -1,6 +1,16 @@
 package com.portfolio.ecommerceplatformadv.domain.model
 
-data class Recommendation(
+data class CartItem(
+    val id: Long? = null,
     val userId: String,
-    val products: List<String>
+    val productId: Long,
+    val name: String,
+    val price: Double,
+    val quantity: Int
+)
+
+data class Cart(
+    val userId: String,
+    val items: List<CartItem>,
+    val total: Double
 )

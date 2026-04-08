@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS drone_telemetry (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    battery_level DOUBLE NOT NULL,
+    altitude DOUBLE NOT NULL,
+    velocity DOUBLE NOT NULL,
+    status VARCHAR(100) DEFAULT 'Stable',
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
