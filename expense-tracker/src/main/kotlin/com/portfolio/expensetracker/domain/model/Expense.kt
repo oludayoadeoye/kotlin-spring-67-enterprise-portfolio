@@ -9,3 +9,10 @@ data class Expense(
     val category: String,
     val date: LocalDateTime = LocalDateTime.now()
 )
+
+data class ProcessedRequest(
+    val key: String,
+    val responseBody: String?,
+    val statusCode: Int,
+    val createdAt: LocalDateTime = LocalDateTime.now()
+)

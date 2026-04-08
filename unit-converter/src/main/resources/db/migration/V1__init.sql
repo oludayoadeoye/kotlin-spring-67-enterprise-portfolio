@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS conversion_history (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    from_value DOUBLE NOT NULL,
+    from_unit VARCHAR(50) NOT NULL,
+    to_value DOUBLE NOT NULL,
+    to_unit VARCHAR(50) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

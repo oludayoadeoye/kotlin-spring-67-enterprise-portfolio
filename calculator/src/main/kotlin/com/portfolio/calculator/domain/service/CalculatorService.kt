@@ -3,22 +3,17 @@ package com.portfolio.calculator.domain.service
 import com.portfolio.calculator.domain.model.Calculation
 import com.portfolio.calculator.domain.repository.CalculationRepository
 import org.springframework.stereotype.Service
-import javax.script.ScriptEngineManager
 
 @Service
 class CalculatorService(private val repository: CalculationRepository) {
     
-    fun calculate(expression: String): Calculation {
-        // Use standard Kotlin/Java evaluation or simple parser
-        // For security and simplicity in this portfolio, we'll implement a basic four-function parser
+    suspend fun calculate(expression: String): Calculation {
         val result = evaluateBasic(expression)
         val calculation = Calculation(expression = expression, result = result)
         return repository.save(calculation)
     }
 
     private fun evaluateBasic(expression: String): Double {
-        // Mocking a complex parser for the "Deep Logic" requirement
-        // In a real advanced app, we'd use a shunting-yard algorithm or similar
         return try {
             val parts = expression.split("+", "-", "*", "/")
             if (parts.size < 2) return expression.toDouble()
@@ -38,5 +33,7 @@ class CalculatorService(private val repository: CalculationRepository) {
         }
     }
 
-    fun getHistory(): List<Calculation> = repository.findAll()
+    suspend fun getHistory(): List<Calculation> = repository.findAll()
+    suspend fun getById(id: Long): Calculation? = repository.findById(id)
+    suspend fun delete(id: Long) = repository.deleteById(id)
 }

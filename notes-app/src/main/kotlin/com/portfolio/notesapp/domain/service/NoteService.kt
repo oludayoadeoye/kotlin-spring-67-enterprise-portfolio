@@ -7,12 +7,12 @@ import java.time.LocalDateTime
 
 @Service
 class NoteService(private val repository: NoteRepository) {
-    fun getAllNotes(): List<Note> = repository.findAll()
-    fun getNoteById(id: Long): Note? = repository.findById(id)
-    fun createNote(note: Note): Note = repository.save(note)
-    fun updateNote(id: Long, updatedNote: Note): Note? {
+    suspend fun getAllNotes(): List<Note> = repository.findAll()
+    suspend fun getNoteById(id: Long): Note? = repository.findById(id)
+    suspend fun createNote(note: Note): Note = repository.save(note)
+    suspend fun updateNote(id: Long, updatedNote: Note): Note? {
         val existing = repository.findById(id) ?: return null
         return repository.save(updatedNote.copy(id = existing.id, updatedAt = LocalDateTime.now()))
     }
-    fun deleteNote(id: Long) = repository.deleteById(id)
+    suspend fun deleteNote(id: Long) = repository.deleteById(id)
 }

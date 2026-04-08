@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS weather_history (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    city VARCHAR(255) NOT NULL,
+    temperature DOUBLE NOT NULL,
+    condition VARCHAR(100) NOT NULL,
+    humidity INT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

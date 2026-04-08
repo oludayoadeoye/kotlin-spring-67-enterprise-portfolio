@@ -6,17 +6,17 @@ import org.springframework.stereotype.Service
 
 @Service
 class TodoService(private val todoRepository: TodoRepository) {
-    fun getAllTodos(): List<Todo> = todoRepository.findAll()
+    suspend fun getAllTodos(): List<Todo> = todoRepository.findAll()
 
-    fun getTodoById(id: Long): Todo? = todoRepository.findById(id)
+    suspend fun getTodoById(id: Long): Todo? = todoRepository.findById(id)
 
-    fun createTodo(todo: Todo): Todo = todoRepository.save(todo)
+    suspend fun createTodo(todo: Todo): Todo = todoRepository.save(todo)
 
-    fun updateTodo(id: Long, updatedTodo: Todo): Todo? {
+    suspend fun updateTodo(id: Long, updatedTodo: Todo): Todo? {
         val existingTodo = todoRepository.findById(id) ?: return null
         val todoToSave = updatedTodo.copy(id = existingTodo.id, createdAt = existingTodo.createdAt)
         return todoRepository.save(todoToSave)
     }
 
-    fun deleteTodo(id: Long) = todoRepository.deleteById(id)
+    suspend fun deleteTodo(id: Long) = todoRepository.deleteById(id)
 }

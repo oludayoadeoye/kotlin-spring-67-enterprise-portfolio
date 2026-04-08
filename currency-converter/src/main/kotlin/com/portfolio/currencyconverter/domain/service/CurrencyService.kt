@@ -1,15 +1,25 @@
 package com.portfolio.currencyconverter.domain.service
 
-import com.portfolio.currencyconverter.domain.model.CurrencyConversion
+import com.portfolio.currencyconverter.domain.model.ConversionResult
+import com.portfolio.currencyconverter.domain.model.ExchangeRate
+import com.portfolio.currencyconverter.domain.repository.ExchangeRateRepository
 import org.springframework.stereotype.Service
 
 @Service
-class CurrencyService {
-    private val mockRates = mapOf("USD_EUR" to 0.92, "EUR_USD" to 1.09, "USD_GBP" to 0.79)
-
-    fun convert(from: String, to: String, amount: Double): CurrencyConversion {
-        val key = "${from.uppercase()}_${to.uppercase()}"
-        val rate = mockRates[key] ?: 1.0
-        return CurrencyConversion(from, to, amount, amount * rate, rate)
+class CurrencyService(private val repository: ExchangeRateRepository) {
+    
+    suspend fun convert(from: String, to: String, amount: Double): ConversionResult {
+        val pair = "${from.uppercase()}_${to.uppercase()}"
+        val rate = repository.findByPair(pair)?.rate ?: 1.0
+        return ConversionResult(from, to, amount, amount * rate, rate)
     }
+
+    suspend fun updateRate(from: String, to: String, rate: Double): ExchangeRate {
+        val pair = "${from.uppercase()}_${to.uppercase()}"
+        val existing = repository.findByPair(pair)
+        val toSave = ExchangeRate(id = existing?.id, currencyPair = pair, rate = rate)
+        return repository.save(toSave)
+    }
+
+    suspend fun getAllRates(): List<ExchangeRate> = repository.findAll()
 }

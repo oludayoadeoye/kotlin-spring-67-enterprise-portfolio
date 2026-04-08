@@ -2,18 +2,18 @@ package com.portfolio.quizapp.domain.service
 
 import com.portfolio.quizapp.domain.model.Question
 import com.portfolio.quizapp.domain.model.QuizResult
+import com.portfolio.quizapp.domain.repository.QuestionRepository
 import org.springframework.stereotype.Service
 
 @Service
-class QuizService {
-    private val questions = listOf(
-        Question(1, "What is Kotlin?", listOf("Language", "Fruit", "Planet"), 0),
-        Question(2, "Spring Boot is based on?", listOf("Java", "Python", "Ruby"), 0)
-    )
+class QuizService(private val repository: QuestionRepository) {
+    
+    suspend fun getQuestions(): List<Question> = repository.findAll()
 
-    fun getQuestions(): List<Question> = questions
+    suspend fun addQuestion(q: Question): Question = repository.save(q)
 
-    fun calculateResult(answers: List<Int>): QuizResult {
+    suspend fun calculateResult(answers: List<Int>): QuizResult {
+        val questions = repository.findAll()
         var score = 0
         answers.forEachIndexed { index, answer ->
             if (index < questions.size && answer == questions[index].correctAnswer) {

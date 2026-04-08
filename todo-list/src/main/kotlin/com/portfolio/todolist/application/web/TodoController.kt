@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.*
 class TodoController(private val todoService: TodoService) {
 
     @GetMapping
-    @Operation(summary = "List all TODOs", description = "Returns a list of all tasks")
-    fun getAllTodos(): List<TodoResponse> =
+    @Operation(summary = "List all TODOs")
+    suspend fun getAllTodos(): List<TodoResponse> =
         todoService.getAllTodos().map { TodoResponse.fromDomain(it) }
 
     @GetMapping("/{id}")
     @Operation(summary = "Get TODO by ID")
-    fun getTodoById(@PathVariable id: Long): ResponseEntity<TodoResponse> {
+    suspend fun getTodoById(@PathVariable id: Long): ResponseEntity<TodoResponse> {
         val todo = todoService.getTodoById(id)
         return if (todo != null) {
             ResponseEntity.ok(TodoResponse.fromDomain(todo))
@@ -34,14 +34,14 @@ class TodoController(private val todoService: TodoService) {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Create a new TODO")
-    fun createTodo(@Valid @RequestBody request: TodoRequest): TodoResponse {
+    suspend fun createTodo(@Valid @RequestBody request: TodoRequest): TodoResponse {
         val createdTodo = todoService.createTodo(request.toDomain())
         return TodoResponse.fromDomain(createdTodo)
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Update an existing TODO")
-    fun updateTodo(
+    suspend fun updateTodo(
         @PathVariable id: Long,
         @Valid @RequestBody request: TodoRequest
     ): ResponseEntity<TodoResponse> {
@@ -56,7 +56,7 @@ class TodoController(private val todoService: TodoService) {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Delete a TODO")
-    fun deleteTodo(@PathVariable id: Long) {
+    suspend fun deleteTodo(@PathVariable id: Long) {
         todoService.deleteTodo(id)
     }
 }

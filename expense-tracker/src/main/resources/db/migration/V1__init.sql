@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS request_logs (
+    id VARCHAR(255) PRIMARY KEY,
+    response_body TEXT,
+    status_code INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS expenses (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    amount DOUBLE NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
