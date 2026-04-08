@@ -1,8 +1,8 @@
 package com.portfolio.imagerecognition.domain.repository
-
-import com.portfolio.imagerecognition.domain.model.RecognitionResult
-
+import com.portfolio.imagerecognition.domain.model.*
 interface ImageRecognitionRepository {
-    suspend fun save(result: RecognitionResult): RecognitionResult
-    suspend fun findAll(): List<RecognitionResult>
+    suspend fun findAll(): List<Any>
+    suspend fun save(entity: Any): Any
+    suspend fun findById(id: Long): Any?
+    suspend fun deleteById(id: Long)
 }

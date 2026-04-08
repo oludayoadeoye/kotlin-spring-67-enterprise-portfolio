@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS blockchain_voting_advs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

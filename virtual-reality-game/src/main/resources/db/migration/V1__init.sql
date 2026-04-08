@@ -1,1 +1,5 @@
--- Initial migration for virtual-reality-game
+CREATE TABLE IF NOT EXISTS virtual_reality_games (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

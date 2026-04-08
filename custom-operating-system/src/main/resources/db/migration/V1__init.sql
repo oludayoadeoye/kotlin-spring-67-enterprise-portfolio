@@ -1,1 +1,5 @@
--- Initial migration for custom-operating-system
+CREATE TABLE IF NOT EXISTS custom_operating_systems (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,1 +1,5 @@
--- Initial migration for cybersecurity-monitoring-adv
+CREATE TABLE IF NOT EXISTS cybersecurity_monitoring_advs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

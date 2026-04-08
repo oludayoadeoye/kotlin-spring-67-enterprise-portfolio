@@ -31,6 +31,19 @@ spring:
           options:
             model: gemini-1.5-flash
 
+  # Spring Cloud Stream
+  cloud:
+    stream:
+      bindings:
+        aiTaskConsumer-in-0:
+          destination: ai-tasks
+          group: ai-assistant-group
+      rabbit:
+        bindings:
+          aiTaskConsumer-in-0:
+            consumer:
+              auto-bind-dlq: true
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

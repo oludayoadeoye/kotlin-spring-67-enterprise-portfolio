@@ -1,1 +1,5 @@
--- Initial migration for advanced-analytics
+CREATE TABLE IF NOT EXISTS advanced_analyticss (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

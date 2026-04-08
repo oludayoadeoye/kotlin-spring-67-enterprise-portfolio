@@ -28,9 +28,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     
-    // Verified Google Cloud Vertex AI SDK
-    implementation("com.google.cloud:google-cloud-aiplatform:3.44.0")
+    // Messaging - RabbitMQ Binder
+    implementation("org.springframework.cloud:spring-cloud-starter-stream-rabbit:4.1.3")
     
+    implementation("com.google.cloud:google-cloud-aiplatform:3.44.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")

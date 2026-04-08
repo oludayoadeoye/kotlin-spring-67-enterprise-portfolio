@@ -1,1 +1,5 @@
--- Initial migration for personal-blog-adv
+CREATE TABLE IF NOT EXISTS personal_blog_advs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

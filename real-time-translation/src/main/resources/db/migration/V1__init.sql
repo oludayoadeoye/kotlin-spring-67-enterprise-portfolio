@@ -1,1 +1,5 @@
--- Initial migration for real-time-translation
+CREATE TABLE IF NOT EXISTS real_time_translations (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

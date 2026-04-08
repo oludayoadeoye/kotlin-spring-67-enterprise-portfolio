@@ -1,1 +1,5 @@
--- Initial migration for unit-converter-adv
+CREATE TABLE IF NOT EXISTS unit_converter_advs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

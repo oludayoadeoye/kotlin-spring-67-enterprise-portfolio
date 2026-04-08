@@ -1,1 +1,5 @@
--- Initial migration for smart-home-security-system
+CREATE TABLE IF NOT EXISTS smart_home_security_systems (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

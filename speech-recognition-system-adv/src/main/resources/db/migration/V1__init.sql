@@ -1,1 +1,5 @@
--- Initial migration for speech-recognition-system-adv
+CREATE TABLE IF NOT EXISTS speech_recognition_system_advs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

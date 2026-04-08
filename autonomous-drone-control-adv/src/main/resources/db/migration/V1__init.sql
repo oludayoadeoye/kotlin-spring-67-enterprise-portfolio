@@ -1,1 +1,5 @@
--- Initial migration for autonomous-drone-control-adv
+CREATE TABLE IF NOT EXISTS autonomous_drone_control_advs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

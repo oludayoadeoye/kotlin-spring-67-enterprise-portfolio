@@ -1,0 +1,47 @@
+graph TD
+    subgraph Users
+        U[Client/User]
+    end
+
+    subgraph "Master Infrastructure (Docker)"
+        KC[Keycloak Auth Server]
+        ELK[ELK Stack: ES/Logstash/Kibana]
+        RMQ[RabbitMQ Task Queue]
+        KFK[Kafka Event Stream]
+    end
+
+    subgraph "Standard Project Architecture (67 Apps)"
+        subgraph "Application Layer"
+            CON[REST Controller]
+            DTO[DTOs & OpenAPI]
+        end
+
+        subgraph "Domain Layer"
+            SRV[Domain Service]
+            MOD[Domain Model]
+            PORT[Repository Port]
+        end
+
+        subgraph "Infrastructure Layer"
+            ADPT[JPA Adapter]
+            FLY[Flyway Migrations]
+        end
+    end
+
+    subgraph Persistence
+        DB[(H2 / PostgreSQL)]
+    end
+
+    U -- "1. Request + JWT" --> CON
+    CON -- "2. Validate" --> KC
+    CON -- "3. Logic" --> SRV
+    SRV -- "4. Entities" --> MOD
+    SRV -- "5. I/O" --> PORT
+    PORT -- "6. Persistence" --> ADPT
+    ADPT -- "7. SQL" --> DB
+    FLY -- "Init" --> DB
+
+    %% Observability & Async
+    CON -- "Log JSON" --> ELK
+    SRV -- "Offload Task" --> RMQ
+    SRV -- "Publish Event" --> KFK

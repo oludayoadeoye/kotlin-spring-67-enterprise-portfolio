@@ -6,3 +6,10 @@ CREATE TABLE IF NOT EXISTS drone_telemetry (
     status VARCHAR(100) DEFAULT 'Stable',
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS flight_commands (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    command_name VARCHAR(100) NOT NULL,
+    status VARCHAR(50) DEFAULT 'Pending',
+    executed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

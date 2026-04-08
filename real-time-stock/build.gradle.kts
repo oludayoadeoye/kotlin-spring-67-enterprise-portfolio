@@ -28,6 +28,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     
+    // Messaging - Kafka Binder
+    implementation("org.springframework.cloud:spring-cloud-starter-stream-kafka:4.1.3")
+    
     // ta4j - Verified for vectorized technical analysis
     implementation("org.ta4j:ta4j-core:0.17")
     
