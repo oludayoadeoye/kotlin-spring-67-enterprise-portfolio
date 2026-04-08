@@ -1,0 +1,1 @@
+-- Initial migration for advanced-analytics-platform

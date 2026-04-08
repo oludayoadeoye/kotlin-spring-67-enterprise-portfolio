@@ -1,6 +1,7 @@
 package com.portfolio.stockportfoliotracker.domain.model
 
 data class PortfolioHolding(
+    val id: Long? = null,
     val symbol: String,
     val shares: Int,
     val avgPrice: Double,

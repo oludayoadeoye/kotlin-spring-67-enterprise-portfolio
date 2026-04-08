@@ -1,0 +1,1 @@
+-- Initial migration for real-time-language-translation-app
