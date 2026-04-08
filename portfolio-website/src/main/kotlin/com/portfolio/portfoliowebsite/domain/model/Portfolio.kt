@@ -8,6 +8,7 @@ data class Project(
 )
 
 data class Skill(
+    val id: Long? = null,
     val name: String,
-    val level: String // e.g., "Expert"
+    val level: String
 )

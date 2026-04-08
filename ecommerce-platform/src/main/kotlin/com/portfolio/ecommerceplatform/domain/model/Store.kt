@@ -9,7 +9,6 @@ data class Product(
 
 data class Order(
     val id: Long? = null,
-    val items: List<Product>,
     val total: Double,
-    val status: String = "Processing"
+    val status: String = "PROCESSING"
 )

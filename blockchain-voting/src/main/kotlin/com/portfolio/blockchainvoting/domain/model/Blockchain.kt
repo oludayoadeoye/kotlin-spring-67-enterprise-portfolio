@@ -6,6 +6,7 @@ data class Vote(
 )
 
 data class Block(
+    val id: Long? = null,
     val index: Int,
     val timestamp: Long,
     val votes: List<Vote>,

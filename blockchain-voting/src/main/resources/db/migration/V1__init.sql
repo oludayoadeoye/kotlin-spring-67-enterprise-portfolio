@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS blocks (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    block_index INT NOT NULL,
+    timestamp BIGINT NOT NULL,
+    prev_hash VARCHAR(255) NOT NULL,
+    hash VARCHAR(255) NOT NULL,
+    votes TEXT NOT NULL
+);

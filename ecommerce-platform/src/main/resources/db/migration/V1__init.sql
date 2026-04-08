@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS products (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DOUBLE NOT NULL,
+    stock INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    total DOUBLE NOT NULL,
+    status VARCHAR(50) DEFAULT 'PROCESSING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO products (name, price, stock) VALUES ('Laptop', 1200.0, 10);
+INSERT INTO products (name, price, stock) VALUES ('Mouse', 25.0, 50);
