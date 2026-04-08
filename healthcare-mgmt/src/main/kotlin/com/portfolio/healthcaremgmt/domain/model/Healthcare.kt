@@ -1,11 +1,12 @@
 package com.portfolio.healthcaremgmt.domain.model
 
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class Patient(
     val id: Long? = null,
     val name: String,
-    val dateOfBirth: String,
+    val dateOfBirth: LocalDate,
     val medicalHistory: String? = null
 )
 

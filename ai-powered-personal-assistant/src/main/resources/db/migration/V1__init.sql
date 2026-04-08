@@ -1,0 +1,1 @@
+-- Initial migration for ai-powered-personal-assistant
