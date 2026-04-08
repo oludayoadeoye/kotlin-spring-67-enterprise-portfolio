@@ -1,1 +1,15 @@
--- Initial migration for real-time-stock
+CREATE TABLE IF NOT EXISTS stocks (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    symbol VARCHAR(50) NOT NULL UNIQUE,
+    current_price DOUBLE NOT NULL,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS stock_analyses (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    symbol VARCHAR(50) NOT NULL,
+    indicator_name VARCHAR(100) NOT NULL,
+    value DOUBLE NOT NULL,
+    recommendation VARCHAR(50),
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

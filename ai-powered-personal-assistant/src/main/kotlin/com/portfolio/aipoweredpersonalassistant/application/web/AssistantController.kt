@@ -6,5 +6,6 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/assistant")
 class AssistantController(private val service: AssistantService) {
-    @PostMapping("/chat") fun chat(@RequestBody query: String) = service.chat(query)
+    @PostMapping("/chat") 
+    suspend fun chat(@RequestBody query: String) = service.chat(query)
 }
