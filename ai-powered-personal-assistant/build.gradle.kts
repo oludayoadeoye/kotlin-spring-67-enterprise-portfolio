@@ -21,15 +21,22 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2024.0.0")
+    }
+}
+
 dependencies {
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     
-    // Messaging - RabbitMQ Binder
-    implementation("org.springframework.cloud:spring-cloud-starter-stream-rabbit:4.1.3")
+    // Messaging
+    implementation("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
     
     implementation("com.google.cloud:google-cloud-aiplatform:3.44.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

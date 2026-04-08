@@ -1,5 +1,5 @@
 server:
-  port: 8101
+  port: 0
 spring:
   threads:
     virtual:
@@ -30,3 +30,9 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/portfolio-realm
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true

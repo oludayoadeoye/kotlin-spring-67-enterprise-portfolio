@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  threads:
+    virtual:
+      enabled: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: "Todo List"
+        url: /todo-list/v3/api-docs
+      - name: "AI Assistant"
+        url: /ai-powered-personal-assistant/v3/api-docs

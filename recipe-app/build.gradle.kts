@@ -17,11 +17,17 @@ java {
     }
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2024.0.0")
+    }
+}
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("net.logstash.logback:logstash-logback-encoder:7.4")
